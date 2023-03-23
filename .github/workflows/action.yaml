@@ -22,4 +22,4 @@ jobs:
 
       - name:  Copy README.md to s3
         run: |
-          aws s3 cp ./index.html s3://${{ env.BUCKET_NAME }}/
+          aws s3 cp ./README.md s3://${{ env.BUCKET_NAME }}/ --acl private --cache-control max-age=0
