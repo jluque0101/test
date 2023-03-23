@@ -1,9 +1,6 @@
 name: AWS S3 workflow
 on:
   push
-env:
-  BUCKET_NAME : "bucket"
-  AWS_REGION : "us-east-2"
 permissions:
       id-token: write   # This is required for requesting the JWT
       contents: read    # This is required for actions/checkout
@@ -18,8 +15,8 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::024218747365:role/OIDCGithubProviderRole
           role-session-name: samplerolesession
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name:  Copy README.md to s3
         run: |
-          aws s3 cp ./README.md s3://${{ env.BUCKET_NAME }}/ --acl private --cache-control max-age=0
+          aws s3 cp ./README.md s3://${{ secrets.BUCKET_NAME }}/ --acl private --cache-control max-age=0
