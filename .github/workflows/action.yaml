@@ -1,4 +1,4 @@
-name: AWS example workflow
+name: AWS S3 workflow
 on:
   push
 env:
