@@ -6,7 +6,7 @@ on:
       destination_dir:
         required: true
         type: string
-    secrets:
+    env:
       AWS_REGION:
         required: true
       AWS_ROLE_ARN:

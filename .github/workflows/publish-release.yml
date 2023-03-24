@@ -2,7 +2,7 @@ name: Publish Release
 
 on:
   workflow_call:
-    secrets:
+    env:
       AWS_REGION:
         required: true
       AWS_ROLE_ARN:
