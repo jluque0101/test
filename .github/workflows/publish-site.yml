@@ -2,10 +2,7 @@ name: Publish site
 
 on:
   workflow_call:
-    inputs:
-      destination_dir:
-        required: true
-        type: string
+
 
 jobs:
   publish-site:

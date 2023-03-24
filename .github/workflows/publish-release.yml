@@ -2,13 +2,7 @@ name: Publish Release
 
 on:
   workflow_call:
-    secrets:
-      AWS_REGION:
-        required: true
-      AWS_ROLE_ARN:
-        required: true
-      AWS_BUCKET_NAME:
-        required: true
+
 
 jobs:
   publish-release-remote-storage:
