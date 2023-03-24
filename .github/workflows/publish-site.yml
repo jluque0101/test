@@ -1,0 +1,35 @@
+name: Publish site
+
+on:
+  workflow_call:
+    inputs:
+      destination_dir:
+        required: true
+        type: string
+    secrets:
+      AWS_REGION:
+        required: true
+      AWS_ROLE_ARN:
+        required: true
+      AWS_BUCKET_NAME:
+        required: true
+
+jobs:
+  publish-site:
+    name: Publish site
+    runs-on: ubuntu-latest
+    environment: github-pages
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read # This is required for actions/checkout
+    steps:
+      - name: Ensure `destination_dir` is not empty
+        if: ${{ inputs.destination_dir == '' }}
+        run: exit 1
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      - name: Deploy to `${{ inputs.destination_dir }}` directory of remote storage
+        run: |
+          echo ${{ secrets.AWS_ROLE_ARN }}
+          echo ${{ secrets.AWS_REGION }}
+          echo ${{ secrets.AWS_BUCKET_NAME }}/${{ inputs.destination_dir }}
