@@ -51,3 +51,15 @@ jobs:
       id-token: write # This is required for requesting the JWT
     uses: ./.github/workflows/publish-release.yml
 
+  publish-site:
+    name: Publish site
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # This is required for requesting the JWT
+      contents: read # This is required for actions/checkout
+    steps:
+      - name: Deploy to directory of remote storage
+        run: |
+          echo ${{ env.AWS_ROLE_ARN }}
+          echo ${{ env.AWS_REGION }}
+          echo ${{ env.AWS_BUCKET_NAME }}
