@@ -5,6 +5,10 @@ on:
     branches: [main]
   pull_request:
 
+env:
+  # Setting an environment variable with the value of a configuration variable
+  AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
+
 jobs:
   check-workflows:
     name: Check workflows
