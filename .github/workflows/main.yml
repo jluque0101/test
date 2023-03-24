@@ -43,7 +43,6 @@ jobs:
           fi
 
   publish-release:
-    if: needs.is-release.outputs.IS_RELEASE == 'true'
     name: Publish release
     permissions:
       contents: write
