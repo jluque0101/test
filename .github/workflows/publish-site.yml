@@ -29,6 +29,6 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: Deploy to `${{ inputs.destination_dir }}` directory of remote storage
         run: |
-          echo ${{ vars.AWS_ROLE_ARN }}
-          echo ${{ vars.AWS_REGION }}
-          echo ${{ vars.AWS_BUCKET_NAME }}/${{ inputs.destination_dir }}
+          echo ${{ env.AWS_ROLE_ARN }}
+          echo ${{ env.AWS_REGION }}
+          echo ${{ env.AWS_BUCKET_NAME }}/${{ inputs.destination_dir }}
