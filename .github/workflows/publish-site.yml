@@ -7,11 +7,6 @@ on:
         required: true
         type: string
 
-env:
-  AWS_ROLE_ARN: ${{ vars.AWS_ROLE_ARN }}
-  AWS_REGION: ${{ vars.AWS_REGION }}
-  AWS_BUCKET_NAME: ${{ vars.AWS_BUCKET_NAME }}
-
 jobs:
   publish-site:
     name: Publish site
